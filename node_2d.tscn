@@ -1,0 +1,219 @@
+[gd_scene load_steps=13 format=3 uid="uid://d3nrsxrmeg7y3"]
+
+[ext_resource type="Texture2D" uid="uid://d0ijxws8q104f" path="res://icon.svg" id="1_kqsy2"]
+[ext_resource type="PackedScene" uid="uid://laer2bcw72x" path="res://Assets/Objects/Player/player.tscn" id="2_ni63s"]
+[ext_resource type="PackedScene" uid="uid://bgpn8odpy1qkc" path="res://System/Nodes/Global Camera/global_camera.tscn" id="3_w5uvf"]
+[ext_resource type="Script" path="res://System/Node Types/Camera Trapper/camera_trapper.gd" id="4_n7g5j"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="5_kjr7x"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="6_35xy1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xulqu"]
+size = Vector2(256, 224)
+
+[sub_resource type="Resource" id="Resource_kwqox"]
+script = ExtResource("6_35xy1")
+duration = 1.0
+transition = 0
+ease = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jhjg3"]
+size = Vector2(256, 224)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lhrfr"]
+size = Vector2(256, 672)
+
+[sub_resource type="Curve2D" id="Curve2D_eu41l"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 128, 112, 0, 0, 98.1302, 0, 128, 560)
+}
+point_count = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_imk7n"]
+size = Vector2(128, 128)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Camera Trappers" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="CameraTrapper2D" type="Area2D" parent="Camera Trappers"]
+script = ExtResource("4_n7g5j")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera Trappers/CameraTrapper2D"]
+position = Vector2(128, 112)
+shape = SubResource("RectangleShape2D_xulqu")
+
+[node name="PhantomCamera2D" type="Node2D" parent="Camera Trappers/CameraTrapper2D" node_paths=PackedStringArray("follow_target")]
+position = Vector2(128, 112)
+script = ExtResource("5_kjr7x")
+follow_mode = 1
+follow_target = NodePath("../Marker2D")
+tween_resource = SubResource("Resource_kwqox")
+tween_on_load = false
+
+[node name="Marker2D" type="Marker2D" parent="Camera Trappers/CameraTrapper2D"]
+position = Vector2(128, 112)
+
+[node name="CameraTrapper2D3" type="Area2D" parent="Camera Trappers"]
+position = Vector2(768, 0)
+script = ExtResource("4_n7g5j")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera Trappers/CameraTrapper2D3"]
+position = Vector2(128, 112)
+shape = SubResource("RectangleShape2D_jhjg3")
+
+[node name="PhantomCamera2D" type="Node2D" parent="Camera Trappers/CameraTrapper2D3" node_paths=PackedStringArray("follow_target")]
+position = Vector2(128, 112)
+script = ExtResource("5_kjr7x")
+follow_mode = 1
+follow_target = NodePath("../Marker2D")
+tween_resource = SubResource("Resource_kwqox")
+tween_on_load = false
+
+[node name="Marker2D" type="Marker2D" parent="Camera Trappers/CameraTrapper2D3"]
+position = Vector2(128, 112)
+
+[node name="CameraTrapper2D4" type="Area2D" parent="Camera Trappers"]
+position = Vector2(768, 448)
+script = ExtResource("4_n7g5j")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera Trappers/CameraTrapper2D4"]
+position = Vector2(128, 112)
+shape = SubResource("RectangleShape2D_jhjg3")
+
+[node name="PhantomCamera2D" type="Node2D" parent="Camera Trappers/CameraTrapper2D4" node_paths=PackedStringArray("follow_target")]
+position = Vector2(128, 112)
+script = ExtResource("5_kjr7x")
+follow_mode = 1
+follow_target = NodePath("../Marker2D")
+tween_resource = SubResource("Resource_kwqox")
+tween_on_load = false
+
+[node name="Marker2D" type="Marker2D" parent="Camera Trappers/CameraTrapper2D4"]
+position = Vector2(128, 112)
+
+[node name="CameraTrapper2D5" type="Area2D" parent="Camera Trappers"]
+position = Vector2(512, 0)
+script = ExtResource("4_n7g5j")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera Trappers/CameraTrapper2D5"]
+position = Vector2(128, 112)
+shape = SubResource("RectangleShape2D_jhjg3")
+
+[node name="PhantomCamera2D" type="Node2D" parent="Camera Trappers/CameraTrapper2D5" node_paths=PackedStringArray("follow_target")]
+position = Vector2(128, 112)
+script = ExtResource("5_kjr7x")
+follow_mode = 1
+follow_target = NodePath("../Marker2D")
+tween_resource = SubResource("Resource_kwqox")
+tween_on_load = false
+
+[node name="Marker2D" type="Marker2D" parent="Camera Trappers/CameraTrapper2D5"]
+position = Vector2(128, 112)
+
+[node name="CameraTrapper2D6" type="Area2D" parent="Camera Trappers"]
+position = Vector2(256, 0)
+script = ExtResource("4_n7g5j")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera Trappers/CameraTrapper2D6"]
+position = Vector2(128, 112)
+shape = SubResource("RectangleShape2D_jhjg3")
+
+[node name="PhantomCamera2D" type="Node2D" parent="Camera Trappers/CameraTrapper2D6" node_paths=PackedStringArray("follow_target")]
+position = Vector2(128, 112)
+script = ExtResource("5_kjr7x")
+follow_mode = 1
+follow_target = NodePath("../Marker2D")
+tween_resource = SubResource("Resource_kwqox")
+tween_on_load = false
+
+[node name="Marker2D" type="Marker2D" parent="Camera Trappers/CameraTrapper2D6"]
+position = Vector2(128, 112)
+
+[node name="CameraTrapper2D7" type="Area2D" parent="Camera Trappers"]
+position = Vector2(1024, 0)
+script = ExtResource("4_n7g5j")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera Trappers/CameraTrapper2D7"]
+position = Vector2(128, 336)
+shape = SubResource("RectangleShape2D_lhrfr")
+
+[node name="PhantomCamera2D" type="Node2D" parent="Camera Trappers/CameraTrapper2D7" node_paths=PackedStringArray("follow_target", "follow_path")]
+position = Vector2(128, 560)
+script = ExtResource("5_kjr7x")
+follow_mode = 4
+follow_target = NodePath("../../../Player")
+follow_path = NodePath("../Path2D")
+tween_resource = SubResource("Resource_kwqox")
+tween_on_load = false
+
+[node name="Path2D" type="Path2D" parent="Camera Trappers/CameraTrapper2D7"]
+curve = SubResource("Curve2D_eu41l")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(488, 232)
+scale = Vector2(8.88026, 0.4)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+texture = ExtResource("1_kqsy2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_imk7n")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2(952, 184)
+scale = Vector2(1.32026, 0.4)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D3"]
+texture = ExtResource("1_kqsy2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+shape = SubResource("RectangleShape2D_imk7n")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+position = Vector2(992, 136)
+scale = Vector2(1.32026, 0.4)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D4"]
+texture = ExtResource("1_kqsy2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
+shape = SubResource("RectangleShape2D_imk7n")
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="."]
+position = Vector2(1024, 88)
+scale = Vector2(1.32026, 0.4)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D5"]
+texture = ExtResource("1_kqsy2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5"]
+shape = SubResource("RectangleShape2D_imk7n")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(1152, 680)
+scale = Vector2(8.88026, 0.4)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2"]
+texture = ExtResource("1_kqsy2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+shape = SubResource("RectangleShape2D_imk7n")
+
+[node name="Player" parent="." instance=ExtResource("2_ni63s")]
+position = Vector2(1344, 592)
+disable_mode = 2
+
+[node name="GlobalCamera" parent="." instance=ExtResource("3_w5uvf")]
+position = Vector2(1344, 592)
